@@ -1,109 +1,154 @@
-# 🔐 Advanced Secure File Encryption Tool
+# Secure File Encryption Tool
 
-## 📝 Project Overview
+## Overview
 
-This Advanced Secure File Encryption Tool is a robust, cross-platform file encryption utility designed to provide top-tier security for sensitive file protection. Utilizing state-of-the-art cryptographic techniques, the tool offers comprehensive file encryption and decryption capabilities.
+This is a robust, Python-based command-line encryption tool designed to provide secure file encryption and decryption using advanced cryptographic techniques.
 
-## 🌟 Key Features
+## Features
 
-### Security Foundations
-- **Encryption Algorithm**: AES-256 in CTR mode
-- **Key Derivation**: Argon2id - Resistant to GPU and ASIC attacks
-- **Integrity Protection**: Chunk-level encryption with compression
-- **Large File Support**: Memory-mapped processing
-- **Cross-Platform Compatibility**: Works on Windows, macOS, and Linux
+- **Strong Encryption**: AES-GCM encryption (128-bit and 256-bit key sizes)
+- **Secure Key Derivation**: Argon2id key derivation algorithm
+- **Data Integrity**: HMAC-SHA256 authentication
+- **File Compression**: Integrated zlib compression
+- **Cross-Platform**: Works on Windows, macOS, and Linux
+- **Brute Force Protection**: Limited decryption attempts
 
-### Advanced Security Mechanisms
-- Multiple password attempt protection
-- Secure file deletion with random overwriting
-- Configurable key stretching parameters
-- Memory-efficient large file handling
+## Prerequisites
 
-## 🛡️ Cryptographic Details
+- Python 3.8+
+- Required Libraries:
+  - PyCryptoDome
+  - argon2-cffi
 
-### Encryption Process
-1. **Salt Generation**: Cryptographically secure random salt
-2. **Key Derivation**: Argon2id with configurable:
-   - Time cost (iterations)
-   - Memory cost
-   - Parallelism
-3. **Encryption**: AES-CTR stream cipher
-4. **Compression**: Zlib compression per chunk
-5. **Secure Deletion**: Multi-pass file overwrite
+## Installation
 
-### Attack Mitigations
-- Prevents brute-force attacks
-- Resistant to rainbow table attacks
-- Protects against memory-based key extraction
-- Handles large files without memory vulnerabilities
-
-## 🚀 Installation
-
-### Prerequisites
-- Python 3.7+
-- pip package manager
-
-### Dependencies
+1. Clone the repository:
 ```bash
-pip install argon2-cffi pycryptodome
+git clone https://github.com/yourusername/secure-file-encryption.git
+cd secure-file-encryption
 ```
 
-## 💻 Usage Examples
-
-### Basic Encryption
+2. Install dependencies:
 ```bash
-# Encrypt a file
-python secure_encryption.py sensitive_document.pdf
-
-# Decrypt a file
-python secure_encryption.py sensitive_document.pdf.encrypted -d
+pip install pycryptodome argon2-cffi
 ```
 
-### Advanced Configuration
-```bash
-# Custom Argon2 parameters
-python secure_encryption.py largefile.zip -t 4 -m 128000
+## Usage
 
-# Specify custom chunk size
-python secure_encryption.py hugefile.iso -c 128000
+### Encryption
+
+Encrypt a file using a password:
+```bash
+python encryption_tool.py encrypt /path/to/file.txt -p "YourSecurePassword"
 ```
 
-## 🔧 Command-Line Options
+#### Optional Encryption Parameters
+- `--time`: Argon2 time cost (default: 2)
+- `--memory`: Memory cost in KB (default: 65536)
+- `--key-size`: AES key size (16 for AES-128, 32 for AES-256)
+- `-v`: Enable verbose output
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `-d, --decrypt` | Decrypt mode | Encrypt |
-| `-c, --chunk-size` | Chunk size (bytes) | 64KB |
-| `-t, --time-cost` | Argon2 time cost | 3 |
-| `-m, --memory-cost` | Argon2 memory cost (KB) | 64KB |
+### Decryption
 
-## ⚠️ Security Recommendations
+Decrypt an encrypted file:
+```bash
+python encryption_tool.py decrypt /path/to/file.txt.enc -p "YourSecurePassword"
+```
+
+## Security Mechanisms
+
+### 1. Key Derivation (Argon2id)
+- Protects against:
+  - Rainbow table attacks
+  - Dictionary attacks
+  - Precomputed hash attacks
+
+### 2. Encryption (AES-GCM)
+- Provides:
+  - Confidentiality
+  - Authenticity
+  - Integrity
+
+### 3. HMAC Verification
+- Ensures data hasn't been tampered with
+- Prevents unauthorized modifications
+
+## Threat Model and Limitations
+
+### Strengths
+- Strong key derivation
+- Authenticated encryption
+- Memory-hard key stretching
+- Compression before encryption
+
+### Limitations
+- Vulnerable to:
+  - Weak passwords
+  - Keyloggers
+  - Physical device compromise
+  - Side-channel attacks
+
+### Not Protected Against
+- Network-level attacks
+- Advanced persistent threats
+- Rubber hose cryptanalysis
+
+## Performance Considerations
+
+- Encryption/Decryption speed depends on:
+  - File size
+  - Memory and time cost parameters
+  - Hardware specifications
+
+### Recommended Parameters
+- Time Cost: 2-4
+- Memory Cost: 2^16 KB (64 MB)
+- Adjust based on your performance needs
+
+## Best Practices
 
 1. Use strong, unique passwords
-2. Store password separately from encrypted files
-3. Adjust Argon2 parameters based on your hardware
-4. Regularly update the encryption tool
+2. Store passwords securely
+3. Use key files or multi-factor authentication
+4. Regularly update the tool
+5. Be aware of your threat model
 
-## 📊 Performance Considerations
+## Error Handling
 
-- **Small Files**: Minimal overhead
-- **Large Files**: Chunk-based processing
-- **Memory Usage**: Configurable and efficient
-- **CPU Usage**: Adaptive to system capabilities
+- Maximum 3 decryption attempts
+- Verbose error messages
+- Secure failure modes
 
-## 🔍 Threat Model Coverage
+## Troubleshooting
 
-- Protects against:
-  - Casual file snooping
-  - Brute-force attacks
-  - Basic cryptanalysis
-  - Memory-based key extraction
+- **Decryption Failure**: 
+  - Verify correct password
+  - Check file integrity
+  - Ensure no file corruption
 
-- Limitations:
-  - Relies on password strength
-  - Not quantum-computer resistant
+- **Performance Issues**:
+  - Reduce memory/time cost
+  - Use on more powerful hardware
 
+## Contribution
 
----
+### Reporting Issues
+- Open GitHub issues
+- Provide detailed error logs
+- Include system information
 
-**Disclaimer**: While this tool provides strong encryption, no system is 100% secure. Always maintain best practices in data protection.
+### Security Vulnerabilities
+- Responsible disclosure via email
+- Provide detailed, reproducible steps
+
+## License
+
+[Specify Your License - e.g., MIT, Apache 2.0]
+
+## Disclaimer
+
+THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY. USE AT YOUR OWN RISK.
+
+## Contact
+
+[Your Contact Information]
