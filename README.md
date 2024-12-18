@@ -145,18 +145,6 @@ python Secure-File-Encryption.py decrypt --key-size [16, 32] /path/to/file.txt -
   - Reduce memory/time cost
   - Use on more powerful hardware
 
-## Contribution
-
-### Reporting Issues
-- Open GitHub issues
-- Provide detailed error logs
-- Include system information
-
-### Security Vulnerabilities
-- Responsible disclosure via email
-- Provide detailed, reproducible steps
-
-
 ## Disclaimer
 
 THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY. USE AT YOUR OWN RISK.
