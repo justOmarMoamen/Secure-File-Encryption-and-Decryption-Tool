@@ -41,18 +41,33 @@ Encrypt a file using a password:
 ```bash
 python encryption_tool.py encrypt /path/to/file.txt -p "YourSecurePassword"
 ```
+```bash
+python encryption_tool.py encrypt /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<encrypted_file>.enc>
+```
+```bash
+python encryption_tool.py encrypt --key-size [16, 32] /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<encrypted_file>.enc>
+```
 
 #### Optional Encryption Parameters
+- `-h, --help`: Show help message and exit
 - `--time`: Argon2 time cost (default: 2)
 - `--memory`: Memory cost in KB (default: 65536)
 - `--key-size`: AES key size (16 for AES-128, 32 for AES-256)
+- `-p`: Password for encryption/decryption
 - `-v`: Enable verbose output
+- `-o`: Custom output file path
 
 ### Decryption
 
 Decrypt an encrypted file:
 ```bash
 python encryption_tool.py decrypt /path/to/file.txt.enc -p "YourSecurePassword"
+```
+```bash
+python encryption_tool.py decrypt /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<decrypted_file>.txt>
+```
+```bash
+python encryption_tool.py decrypt --key-size [16, 32] /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<decrypted_file>.txt>
 ```
 
 ## Security Mechanisms
