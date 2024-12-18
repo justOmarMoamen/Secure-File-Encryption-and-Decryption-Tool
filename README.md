@@ -141,7 +141,7 @@ python encryption_tool.py decrypt /path/to/file.txt.enc -p "YourSecurePassword"
 - Responsible disclosure via email
 - Provide detailed, reproducible steps
 
-   ---   ---   ---   ---   ---
+   ---
 
 ## Disclaimer
 
