@@ -39,13 +39,13 @@ pip install pycryptodome argon2-cffi
 
 Encrypt a file using a password:
 ```bash
-python encryption_tool.py encrypt /path/to/file.txt -p "YourSecurePassword"
+python Secure-File-Encryption.py encrypt /path/to/file.txt -p "YourSecurePassword"
 ```
 ```bash
-python encryption_tool.py encrypt /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<encrypted_file>.enc>
+python Secure-File-Encryption.py /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<encrypted_file>.enc>
 ```
 ```bash
-python encryption_tool.py encrypt --key-size [16, 32] /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<encrypted_file>.enc>
+python Secure-File-Encryption.py encrypt --key-size [16, 32] /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<encrypted_file>.enc>
 ```
 
 #### Optional Encryption Parameters
@@ -61,13 +61,13 @@ python encryption_tool.py encrypt --key-size [16, 32] /path/to/file.txt -p "Your
 
 Decrypt an encrypted file:
 ```bash
-python encryption_tool.py decrypt /path/to/file.txt.enc -p "YourSecurePassword"
+python Secure-File-Encryption.py decrypt /path/to/file.txt.enc -p "YourSecurePassword"
 ```
 ```bash
-python encryption_tool.py decrypt /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<decrypted_file>.txt>
+python Secure-File-Encryption.py decrypt /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<decrypted_file>.txt>
 ```
 ```bash
-python encryption_tool.py decrypt --key-size [16, 32] /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<decrypted_file>.txt>
+python Secure-File-Encryption.py decrypt --key-size [16, 32] /path/to/file.txt -p "YourSecurePassword" -o <path_to_custom_file/<decrypted_file>.txt>
 ```
 
 ## Security Mechanisms
