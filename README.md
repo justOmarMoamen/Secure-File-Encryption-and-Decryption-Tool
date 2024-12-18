@@ -141,14 +141,8 @@ python encryption_tool.py decrypt /path/to/file.txt.enc -p "YourSecurePassword"
 - Responsible disclosure via email
 - Provide detailed, reproducible steps
 
-## License
-
-[Specify Your License - e.g., MIT, Apache 2.0]
+   ---   ---   ---   ---   ---
 
 ## Disclaimer
 
 THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY. USE AT YOUR OWN RISK.
-
-## Contact
-
-[Your Contact Information]
