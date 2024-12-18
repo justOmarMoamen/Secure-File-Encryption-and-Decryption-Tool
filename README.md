@@ -24,8 +24,8 @@ This is a robust, Python-based command-line encryption tool designed to provide 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/secure-file-encryption.git
-cd secure-file-encryption
+git clone https://github.com/justOmarMoamen/Secure-File-Encryption-and-Decryption-Tool.git
+cd Secure-FIle-Encryption
 ```
 
 2. Install dependencies:
@@ -141,7 +141,6 @@ python encryption_tool.py decrypt /path/to/file.txt.enc -p "YourSecurePassword"
 - Responsible disclosure via email
 - Provide detailed, reproducible steps
 
-   ---
 
 ## Disclaimer
 
